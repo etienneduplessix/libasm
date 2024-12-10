@@ -8,7 +8,7 @@ CC = gcc
 RM = rm -f
 LD = ld 
 # Source and object files
-FILES = ft_strlen.s  ft_strcpy.s ft_strcmp.s #ft_write.s ft_read.s ft_strdup.s
+FILES = ft_strlen.s  ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 OBJS = $(FILES:.s=.o)
 
 # Default rule to build the library
