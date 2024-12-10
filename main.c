@@ -17,19 +17,19 @@ int main() {
     size_t len = ft_strlen(testStr);
     printf("Length of '%s': %zu\n", testStr, len);
 
-    // // Test ft_strcpy
-    // char dest[50];
-    // ft_strcpy(dest, testStr);
-    // printf("Copied string: '%s'\n", dest);
+    // Test ft_strcpy
+    char dest[50];
+    ft_strcpy(dest, testStr);
+    printf("Copied string: '%s'\n", dest);
 
-    // // Test ft_strcmp
-    // const char *str1 = "Hello";
-    // const char *str2 = "Hello";
-    // const char *str3 = "World";
-    // int cmp1 = ft_strcmp(str1, str2);
-    // int cmp2 = ft_strcmp(str1, str3);
-    // printf("Comparison of '%s' and '%s': %d\n", str1, str2, cmp1);
-    // printf("Comparison of '%s' and '%s': %d\n", str1, str3, cmp2);
+    // Test ft_strcmp
+    const char *str1 = "Hello";
+    const char *str2 = "Hello";
+    const char *str3 = "World";
+    int cmp1 = ft_strcmp(str1, str2);
+    int cmp2 = ft_strcmp(str1, str3);
+    printf("Comparison of '%s' and '%s': %d\n", str1, str2, cmp1);
+    printf("Comparison of '%s' and '%s': %d\n", str1, str3, cmp2);
 
     // // Test ft_write
     // const char *message = "This is a test message.\n";
