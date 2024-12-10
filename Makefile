@@ -1,37 +1,35 @@
+# Name of the library
+NAME = libasm.a
 
-NAME =libasm.a
+# Tools
+NASM = nasm
+AR = ar rcs
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
+LD = ld 
+# Source and object files
+FILES = ft_strlen.s  #ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
+OBJS = $(FILES:.s=.o)
 
-FILES = ft_strlen.c ft_strcpy.c ft_strcmp.c ft_write.c ft_read.c ft_strdup.c
-
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
-
-OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
-
-
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -o $@ $<
-
-$(NAME): $(OBJS)
-	$(AR) $@ $^
-
-bonus: $(OBJS_B)
-	$(AR) $(NAME) $^
-
+# Default rule to build the library
 all: $(NAME)
 
+# Rule to build the static library
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
+# Rule
+# Rule to compile assembly files into object files
+%.o: %.s
+	$(NASM) -f elf64 $< -o $@
+
+# Clean rules
 clean:
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: bonus all clean fclean re
+.PHONY: all clean fclean re
